@@ -7,7 +7,7 @@ public class RandomCharacterSelectorWithScaling : MonoBehaviour
     public Button[] characterButtons;   // Array tombol karakter di Scroll View
     public Button randomButton;         // Tombol Random
     public ScrollRect scrollRect;       // Komponen Scroll Rect dari Scroll View
-    public float spinDuration = 1f;     // Durasi perpindahan antar tombol
+    public float spinDuration = 0.5f;   // Durasi perpindahan antar tombol
     public int spinCount = 10;          // Jumlah putaran sebelum berhenti
     public float spinSpeed = 0.1f;      // Kecepatan jeda di antara pemilihan tombol saat spin
 
@@ -25,14 +25,14 @@ public class RandomCharacterSelectorWithScaling : MonoBehaviour
 
     private IEnumerator RandomSelect()
     {
-        // Proses acak awal dengan spin
+        // Lakukan spin untuk mengacak posisi tombol beberapa kali
         for (int i = 0; i < spinCount; i++)
         {
-            // Pilih tombol acak setiap kali berputar
+            // Pilih tombol secara acak di setiap iterasi
             int randomIndex = Random.Range(0, characterButtons.Length);
             Button tempButton = characterButtons[randomIndex];
 
-            // Scroll ke tombol acak sementara untuk efek spin
+            // Pindahkan scroll view ke tombol acak sementara untuk efek spin
             yield return ScrollToButton(tempButton);
 
             // Delay untuk memberikan kesan "spin"
@@ -57,24 +57,19 @@ public class RandomCharacterSelectorWithScaling : MonoBehaviour
 
         // Hitung posisi target untuk Scroll View agar tombol berada di tengah
         float targetPosition = Mathf.Clamp01(
-            (targetButtonRect.anchoredPosition.x + (targetButtonRect.rect.width / 2)) / contentRect.rect.width
+            (targetButtonRect.localPosition.x + contentRect.rect.width / 2 - targetButtonRect.rect.width / 2) / contentRect.rect.width
         );
 
         // Lakukan smooth scrolling dengan memulai dari posisi scroll saat ini
         float elapsedTime = 0f;
         float startPosition = scrollRect.horizontalNormalizedPosition;
-
-        // Offset untuk memastikan tombol berada di tengah
         float middleOffset = 0.5f;
 
-        // Loop untuk menggerakkan scroll secara mulus ke posisi target
+        // Gerakkan scroll secara mulus ke posisi target
         while (elapsedTime < 1f)
         {
-            elapsedTime += Time.deltaTime * spinDuration;
+            elapsedTime += Time.deltaTime / spinDuration;
             scrollRect.horizontalNormalizedPosition = Mathf.Lerp(startPosition, targetPosition - middleOffset, elapsedTime);
-
-            // Pastikan scroll view tidak melampaui target
-            scrollRect.horizontalNormalizedPosition = Mathf.Clamp01(scrollRect.horizontalNormalizedPosition);
 
             yield return null;
         }
@@ -106,14 +101,12 @@ public class RandomCharacterSelectorWithScaling : MonoBehaviour
 
                 // Atur skala berdasarkan jarak dari tengah menggunakan beberapa threshold
                 float scale;
-                if (distanceFromCenter < centerThreshold) // Zona di dekat tengah
+                if (distanceFromCenter < centerThreshold)
                 {
-                    // Jarak sangat dekat dengan tengah
                     scale = Mathf.Lerp(maxScale, midScale, distanceFromCenter / centerThreshold);
                 }
                 else
                 {
-                    // Di luar zona tengah
                     scale = Mathf.Lerp(midScale, minScale, (distanceFromCenter - centerThreshold) / centerPosition);
                 }
 
