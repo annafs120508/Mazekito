@@ -1,72 +1,40 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RandomCharacterSelector : MonoBehaviour
 {
-    public Button[] characterButtons;   // Array tombol karakter di Scroll View
-    public Button randomButton;         // Tombol Random
-    public ScrollRect scrollRect;       // Komponen Scroll Rect dari Scroll View
-    public float spinDuration = 1f;     // Durasi spin
-    public int spinCount = 10;           // Jumlah putaran sebelum berhenti
-    public float spinSpeed = 0.1f;       // Kecepatan jeda di antara pemilihan tombol saat spin
+    public ScrollRect scrollView; // Referensi komponen ScrollRect
+    public List<RectTransform> characterButtons; // List RectTransform dari tombol karakter
 
-    private void Start()
+    public void OnRandomButtonClick()
     {
-        randomButton.onClick.AddListener(() => StartCoroutine(RandomSelect()));
+        // Pilih salah satu tombol karakter secara acak
+        int randomIndex = Random.Range(0, characterButtons.Count);
+        RectTransform selectedButton = characterButtons[randomIndex];
+
+        // Hitung posisi normalisasi dari tombol yang dipilih
+        float normalizedPosition = (float)randomIndex / (characterButtons.Count - 1);
+
+        // Gulir ke tombol yang dipilih dengan animasi halus
+        StartCoroutine(SmoothScrollTo(normalizedPosition));
     }
 
-    private IEnumerator RandomSelect()
+    private IEnumerator SmoothScrollTo(float targetPosition)
     {
-        // Lakukan spin
-        for (int i = 0; i < spinCount; i++)
-        {
-            // Pilih indeks acak
-            int randomIndex = Random.Range(0, characterButtons.Length);
-            Button tempButton = characterButtons[randomIndex];
-
-            // Scroll ke tombol yang dipilih
-            yield return ScrollToButton(tempButton);
-
-            // Delay untuk memberikan kesan "spin"
-            yield return new WaitForSeconds(spinSpeed);
-        }
-
-        // Pilih indeks akhir secara acak
-        int finalIndex = Random.Range(0, characterButtons.Length);
-        Button finalButton = characterButtons[finalIndex];
-
-        // Scroll ke tombol yang terpilih secara final
-        yield return ScrollToButton(finalButton);
-
-        // Klik tombol yang terpilih
-        finalButton.onClick.Invoke();
-    }
-
-    private IEnumerator ScrollToButton(Button targetButton)
-    {
-        RectTransform targetButtonRect = targetButton.GetComponent<RectTransform>();
-        RectTransform contentRect = scrollRect.content;
-
-        // Hitung posisi target untuk Scroll View
-        float targetPosition = Mathf.Clamp01(
-            (targetButtonRect.anchoredPosition.x + (targetButtonRect.rect.width / 2)) / contentRect.rect.width
-        );
-
-        // Lakukan smooth scrolling
+        float duration = 0.5f; // Durasi animasi scroll
         float elapsedTime = 0f;
-        float startPosition = scrollRect.horizontalNormalizedPosition;
+        float startPosition = scrollView.horizontalNormalizedPosition;
 
-        // Mendeteksi posisi tengah dan scrolling
-        float middleOffset = 0.5f; // Offset untuk menempatkan di tengah
-        while (elapsedTime < 1f)
+        while (elapsedTime < duration)
         {
-            elapsedTime += Time.deltaTime / (spinDuration / spinCount);
-            scrollRect.horizontalNormalizedPosition = Mathf.Lerp(startPosition, targetPosition - middleOffset, elapsedTime);
+            elapsedTime += Time.deltaTime;
+            float newPosition = Mathf.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            scrollView.horizontalNormalizedPosition = newPosition;
             yield return null;
         }
 
-        // Pastikan posisi scroll tepat di posisi akhir
-        scrollRect.horizontalNormalizedPosition = targetPosition - middleOffset;
+        scrollView.horizontalNormalizedPosition = targetPosition;
     }
 }
