@@ -123,6 +123,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1526110612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526110614}
+  - component: {fileID: 1526110613}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1526110613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526110612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536944995ee9bbb4483e0b450b6495fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crabCharacterPrefab: {fileID: 3707926285718438905, guid: da5800ab768c91b4bb400a74d4f8efb6, type: 3}
+  ziaCharacterPrefab: {fileID: 1757943432651057682, guid: bd1f74e12b81be443a853ee89346ce47, type: 3}
+  rosaCharacterPrefab: {fileID: 3707926285718438905, guid: da5800ab768c91b4bb400a74d4f8efb6, type: 3}
+  farizCharacterPrefab: {fileID: 1757943432651057682, guid: bd1f74e12b81be443a853ee89346ce47, type: 3}
+--- !u!4 &1526110614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526110612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.8221993, y: 1.9684166, z: -0.06358636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101639571
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,3 +268,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2101639574}
+  - {fileID: 1526110614}
