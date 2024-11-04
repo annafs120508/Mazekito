@@ -2,19 +2,30 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public static MusicManager instance;  // Singleton untuk memastikan hanya ada satu MusicManager
+    public static MusicManager Instance; // Singleton instance
 
-    void Awake()
+    private void Awake()
     {
-        // Jika tidak ada instance lain dari MusicManager, set sebagai instance
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);  // Jangan hancurkan musik saat berpindah scene
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Destroy(gameObject);  // Jika sudah ada instance, hancurkan object yang baru
+            Destroy(gameObject); // Hancurkan instance baru jika sudah ada yang aktif
         }
+    }
+
+    public void PlayMusic()
+    {
+        // Contoh fungsi untuk memainkan musik
+        GetComponent<AudioSource>().Play();
+    }
+
+    public void StopMusic()
+    {
+        // Contoh fungsi untuk menghentikan musik
+        GetComponent<AudioSource>().Stop();
     }
 }
