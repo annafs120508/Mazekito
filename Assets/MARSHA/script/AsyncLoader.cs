@@ -3,39 +3,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class AsyncLoader: MonoBehaviour
+public class AsyncLoader : MonoBehaviour
 {
-    // GameObject untuk loading screen
     public GameObject loadingScreen;
-
-    // Slider untuk menunjukkan progress
     public Slider loadingBar;
+    public float delayTime = 2f;
 
-    // Fungsi untuk memulai proses load scene
     public void LoadScene(int sceneId)
     {
-        StartCoroutine(LoadSceneAsync(sceneId));
+        // Pastikan time scale diatur ke 1 sebelum load scene
+        Time.timeScale = 1f;
+        StartCoroutine(ShowLoadingScreenAndLoadScene(sceneId));
     }
 
-    // Coroutine untuk proses loading secara asynchronous
-    IEnumerator LoadSceneAsync(int sceneId)
+    IEnumerator ShowLoadingScreenAndLoadScene(int sceneId)
     {
-        // Aktifkan loading screen
         loadingScreen.SetActive(true);
+        yield return new WaitForSeconds(delayTime);
 
-        // Mulai proses load scene secara asynchronous
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+        operation.allowSceneActivation = false;
 
-        // Selama scene belum selesai dimuat
         while (!operation.isDone)
         {
-            // Hitung progress dari 0 hingga 1
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-
-            // Update nilai slider sesuai progress loading
             loadingBar.value = progressValue;
 
-            // Tunggu hingga frame berikutnya
+            if (operation.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(1); // Tambahan waktu jika ingin delay lagi
+                operation.allowSceneActivation = true;
+            }
+
             yield return null;
         }
     }
