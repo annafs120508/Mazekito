@@ -1,0 +1,757 @@
+fileFormatVersion: 2
+guid: 95460261c94823a40bdc20d175f3444a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 325
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grid salju v1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1205
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -189, y: -194}
+        - {x: -194, y: 191}
+        - {x: -121, y: 192}
+        - {x: -120, y: -195}
+      - - {x: -197, y: 120}
+        - {x: -194, y: 191}
+        - {x: 190, y: 191}
+        - {x: 193, y: 118}
+      - - {x: 138, y: -195}
+        - {x: 136, y: -53}
+        - {x: 192, y: -54}
+        - {x: 192, y: -194}
+      - - {x: 91, y: -194}
+        - {x: 91, y: -108}
+        - {x: 136, y: -107}
+        - {x: 136, y: -195}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0b12dce28192d4ea5a672203fc2b1c
+      internalID: -1920286867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 805
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -191, y: -189}
+        - {x: -191, y: 192}
+        - {x: -130, y: 192}
+        - {x: -130, y: -189}
+      - - {x: 115, y: 86}
+        - {x: 115, y: 183}
+        - {x: 192, y: 183}
+        - {x: 192, y: 86}
+      - - {x: 108, y: -188}
+        - {x: 108, y: -77}
+        - {x: 188, y: -77}
+        - {x: 188, y: -188}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9be37620f941d48b040df53e34bc95
+      internalID: 527598546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1205
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -194, y: 116}
+        - {x: -194, y: 190}
+        - {x: 192, y: 190}
+        - {x: 192, y: 116}
+      - - {x: -189, y: -181}
+        - {x: -189, y: -111}
+        - {x: 189, y: -111}
+        - {x: 189, y: -181}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d9017de38552554c8a52aba79c975b3
+      internalID: -2667738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1205
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -190, y: -185}
+        - {x: -190, y: -56}
+        - {x: -142, y: -56}
+        - {x: -142, y: -185}
+      - - {x: -177, y: -183}
+        - {x: -177, y: -107}
+        - {x: -93, y: -107}
+        - {x: -93, y: -183}
+      - - {x: -190, y: 121}
+        - {x: -190, y: 191}
+        - {x: 185, y: 191}
+        - {x: 185, y: 121}
+      - - {x: 132, y: -190}
+        - {x: 132, y: 118}
+        - {x: 188, y: 118}
+        - {x: 188, y: -190}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eed852369ea40d418f000c198fcfe0f
+      internalID: -1325907462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1205
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -184, y: -183}
+        - {x: -184, y: 188}
+        - {x: -127, y: 188}
+        - {x: -127, y: -183}
+      - - {x: -187, y: 128}
+        - {x: -186, y: 188}
+        - {x: 188, y: 192}
+        - {x: 186, y: 123}
+      - - {x: -182, y: -183}
+        - {x: -185, y: -113}
+        - {x: 187, y: -112}
+        - {x: 188, y: -181}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c47ec4ac1dff341901ed200ba35070
+      internalID: -374914242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 805
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -187, y: -187}
+        - {x: -187, y: 191}
+        - {x: -127, y: 191}
+        - {x: -127, y: -187}
+      - - {x: 135, y: -194}
+        - {x: 135, y: 193}
+        - {x: 191, y: 193}
+        - {x: 191, y: -194}
+      - - {x: -122, y: -189}
+        - {x: -121, y: -104}
+        - {x: 128, y: -105}
+        - {x: 128, y: -191}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 985474b576f18e248a7c10731e2106eb
+      internalID: 990194363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1205
+        width: 395
+        height: 395
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4f6129872716342b088f691ef9e361
+      internalID: 258039592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 805
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -181, y: -181}
+        - {x: -181, y: 178}
+        - {x: -132, y: 178}
+        - {x: -132, y: -181}
+      - - {x: 137, y: -185}
+        - {x: 137, y: 175}
+        - {x: 186, y: 175}
+        - {x: 186, y: -185}
+      - - {x: -125, y: 126}
+        - {x: -125, y: 179}
+        - {x: 131, y: 179}
+        - {x: 131, y: 126}
+      - - {x: -123, y: -181}
+        - {x: -123, y: -115}
+        - {x: 124, y: -115}
+        - {x: 124, y: -181}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a75eebfc9f95cd4cbf085d64848fed7
+      internalID: 424402944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 805
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -182, y: -186}
+        - {x: -182, y: 183}
+        - {x: -135, y: 183}
+        - {x: -135, y: -186}
+      - - {x: 132, y: -189}
+        - {x: 132, y: 180}
+        - {x: 185, y: 180}
+        - {x: 185, y: -189}
+      - - {x: -183, y: 116}
+        - {x: -183, y: 183}
+        - {x: 179, y: 182}
+        - {x: 181, y: 117}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec7f1105d76d414f80b55ec75d87458
+      internalID: -1508304225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 405
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -182, y: -183}
+        - {x: -182, y: 183}
+        - {x: -132, y: 183}
+        - {x: -132, y: -183}
+      - - {x: 144, y: -185}
+        - {x: 144, y: 188}
+        - {x: 187, y: 188}
+        - {x: 187, y: -185}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689b56774bb799a4a9fbcc11669c26b8
+      internalID: -777699602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 405
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -186, y: 116}
+        - {x: -186, y: 189}
+        - {x: 189, y: 189}
+        - {x: 189, y: 116}
+      - - {x: -186, y: -186}
+        - {x: -186, y: -83}
+        - {x: -112, y: -83}
+        - {x: -112, y: -186}
+      - - {x: 119, y: -184}
+        - {x: 119, y: -84}
+        - {x: 189, y: -84}
+        - {x: 189, y: -184}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9b10dc13513404ab74314da3e7f081
+      internalID: -19988170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 405
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -188, y: 98}
+        - {x: -188, y: 182}
+        - {x: -115, y: 182}
+        - {x: -115, y: 98}
+      - - {x: 117, y: 90}
+        - {x: 117, y: 184}
+        - {x: 188, y: 184}
+        - {x: 188, y: 90}
+      - - {x: -179, y: -173}
+        - {x: -179, y: -89}
+        - {x: -104, y: -89}
+        - {x: -104, y: -173}
+      - - {x: 140, y: -180}
+        - {x: 140, y: -72}
+        - {x: 190, y: -72}
+        - {x: 190, y: -180}
+      - - {x: 101, y: -180}
+        - {x: 101, y: -110}
+        - {x: 141, y: -109}
+        - {x: 142, y: -180}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46c9e5c09642cd49b7986a6f82d6c79
+      internalID: 358934392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_12
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 405
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -188, y: 97}
+        - {x: -188, y: 181}
+        - {x: -114, y: 181}
+        - {x: -114, y: 97}
+      - - {x: -184, y: -174}
+        - {x: -184, y: -78}
+        - {x: -112, y: -78}
+        - {x: -112, y: -174}
+      - - {x: 136, y: -184}
+        - {x: 136, y: 182}
+        - {x: 192, y: 182}
+        - {x: 192, y: -184}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47409be1b34f264e8e45f446d5a759f
+      internalID: -416228525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -183, y: -172}
+        - {x: -183, y: 185}
+        - {x: -129, y: 185}
+        - {x: -129, y: -172}
+      - - {x: -179, y: -171}
+        - {x: -179, y: -114}
+        - {x: 189, y: -114}
+        - {x: 189, y: -171}
+      - - {x: 122, y: 97}
+        - {x: 122, y: 188}
+        - {x: 190, y: 188}
+        - {x: 190, y: 97}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354a606ce0458be43a2f00bc8d1efaaa
+      internalID: -2013722282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_14
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 5
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -186, y: 99}
+        - {x: -186, y: 185}
+        - {x: -116, y: 185}
+        - {x: -116, y: 99}
+      - - {x: 123, y: 94}
+        - {x: 123, y: 188}
+        - {x: 192, y: 188}
+        - {x: 192, y: 94}
+      - - {x: -186, y: -185}
+        - {x: -186, y: -120}
+        - {x: 189, y: -120}
+        - {x: 189, y: -185}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2a2e9af3bc1dc49a29e350464f2da3
+      internalID: -2681562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_15
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 5
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -187, y: 124}
+        - {x: -187, y: 187}
+        - {x: 186, y: 187}
+        - {x: 186, y: 124}
+      - - {x: -183, y: -190}
+        - {x: -183, y: -129}
+        - {x: 186, y: -129}
+        - {x: 186, y: -190}
+      - - {x: 134, y: -131}
+        - {x: 135, y: 126}
+        - {x: 187, y: 126}
+        - {x: 185, y: -132}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c52727f2a499524391ce30de6ac5ccf
+      internalID: -395994352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid salju v1_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 5
+        width: 394
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -190, y: 101}
+        - {x: -190, y: 191}
+        - {x: -114, y: 191}
+        - {x: -114, y: 101}
+      - - {x: -188, y: -181}
+        - {x: -188, y: -117}
+        - {x: 193, y: -117}
+        - {x: 193, y: -181}
+      - - {x: 137, y: -118}
+        - {x: 136, y: 185}
+        - {x: 196, y: 185}
+        - {x: 194, y: -118}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9d779027e0a0948a1c7a69edf4fb74
+      internalID: 495462518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      grid salju v1_0: -1920286867
+      grid salju v1_1: 527598546
+      grid salju v1_10: -19988170
+      grid salju v1_11: 358934392
+      grid salju v1_12: -416228525
+      grid salju v1_13: -2013722282
+      grid salju v1_14: -2681562
+      grid salju v1_15: -395994352
+      grid salju v1_16: 495462518
+      grid salju v1_2: -2667738
+      grid salju v1_3: -1325907462
+      grid salju v1_4: -374914242
+      grid salju v1_5: 990194363
+      grid salju v1_6: 258039592
+      grid salju v1_7: 424402944
+      grid salju v1_8: -1508304225
+      grid salju v1_9: -777699602
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

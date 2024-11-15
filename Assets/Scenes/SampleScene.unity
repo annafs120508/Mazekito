@@ -229,7 +229,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -254,7 +254,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 19.5, y: 7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -288,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 706475331}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.39, y: 2.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -398,25 +398,25 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: 2.466e-42
+      e00: 7.0684684e+28
       e01: 0
-      e02: 1.1811176e+10
-      e03: 1.1811176e+10
-      e10: 0
+      e02: -5.0728617e+19
+      e03: -5.0728617e+19
+      e10: 2.7900757e+20
       e11: 0
-      e12: 4.22e-43
-      e13: 4.22e-43
-      e20: 6.7331037e-31
-      e21: 1.0757022e-36
-      e22: -1.98114e-19
-      e23: 2.0109825
+      e12: 9.8e-43
+      e13: 9.8e-43
+      e20: 2.585097e+18
+      e21: -0.000000005198217
+      e22: 1.1804333e-19
+      e23: -8.636695e+9
       e30: 4.5905e-41
-      e31: 4.22e-43
-      e32: 4.22e-43
-      e33: 4.25e-43
+      e31: 9.82e-43
+      e32: 9.81e-43
+      e33: 9.82e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.4847e-41, g: 3.4847e-41, b: 3.4847e-41, a: 3.4847e-41}
+    m_Data: {r: 3.5032e-41, g: 3.5032e-41, b: 3.5032e-41, a: 3.5032e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -522,26 +522,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mazeCellPrefab: {fileID: 3882035778255427041, guid: ad24a5e9b9775a04997925506f3d0cd0, type: 3}
-  _mazeWidth: 5
-  _mazeHeight: 5
+  _mazeWidth: 20
+  _mazeHeight: 7
   _tileMap: {fileID: 706475334}
   _tiles:
-  - {fileID: 11400000, guid: 7dfc08eab9549c746ae51a1d1091ed32, type: 2}
-  - {fileID: 11400000, guid: aa58587a020c2634191b9d8f004655bd, type: 2}
-  - {fileID: 11400000, guid: d39ad346231481249ac51f94058b5a54, type: 2}
-  - {fileID: 11400000, guid: 159d1281a5bfcfe4882d44403f968bc3, type: 2}
-  - {fileID: 11400000, guid: df9858eac0c70054e8e8728424902be8, type: 2}
-  - {fileID: 11400000, guid: bab76222f7e11c848a7a188f5e70a080, type: 2}
-  - {fileID: 11400000, guid: 9063d7aa0693894499a8fa9958707676, type: 2}
-  - {fileID: 11400000, guid: ce7f36d7b9ba9e94389a89fa79e7b31b, type: 2}
-  - {fileID: 11400000, guid: 61cdbe2d3ff48304ab96d03322471ada, type: 2}
-  - {fileID: 11400000, guid: cbc23c413222bad4db76e60b9e5f9940, type: 2}
-  - {fileID: 11400000, guid: 9e75e4e12a8a59440b283027031ad1b2, type: 2}
-  - {fileID: 11400000, guid: 6a4aa4143576b0847b12810c7bd2e465, type: 2}
-  - {fileID: 11400000, guid: a3c384dff665fef41b612c68514bf14f, type: 2}
-  - {fileID: 11400000, guid: 56b5259aa36d0b548bd44a5cda4f1043, type: 2}
-  - {fileID: 11400000, guid: e1323c20c4a1f8f4d8e55fc07b9e478c, type: 2}
-  - {fileID: 11400000, guid: 7dfc08eab9549c746ae51a1d1091ed32, type: 2}
+  - {fileID: 11400000, guid: 3da7b81ab563eca4dbba3f543bf2a46d, type: 2}
+  - {fileID: 11400000, guid: 452a4b073a0957d47922a82d9b7390d6, type: 2}
+  - {fileID: 11400000, guid: 6d55f23946f40494ea9a9973469b15e7, type: 2}
+  - {fileID: 11400000, guid: 75efc09c95d6fe34b9b1e135b34794c4, type: 2}
+  - {fileID: 11400000, guid: 0b99ae471b56e4644b0e30b05ad6d062, type: 2}
+  - {fileID: 11400000, guid: 7a59b6b629a3ba441940006ae2e26f68, type: 2}
+  - {fileID: 11400000, guid: 8c9aed15a9284e248aa6bf3a53f9349e, type: 2}
+  - {fileID: 11400000, guid: 0589d23feb9e7be4c813b1bc2e2e34e4, type: 2}
+  - {fileID: 11400000, guid: fa048a7120992e6499171ca276b6d768, type: 2}
+  - {fileID: 11400000, guid: d1a1bf52352f41142bd1d2ce1f2e994c, type: 2}
+  - {fileID: 11400000, guid: f897e21567835ba4faff6ab88161eb2f, type: 2}
+  - {fileID: 11400000, guid: 503918c5e303fcf4d9a962a38b2b9803, type: 2}
+  - {fileID: 11400000, guid: 4c446f3dc09aca74bb24b6c2aff9583d, type: 2}
+  - {fileID: 11400000, guid: 0d698fc43c885104590c087e342da4af, type: 2}
+  - {fileID: 11400000, guid: da27e1dc2e1f559428fe8295ef647e7f, type: 2}
+  - {fileID: 11400000, guid: bd73f6a92f2bfa443a9965b37832fcff, type: 2}
   _spritePrefab: {fileID: 3795966364446473060, guid: 986084a7be44a5e4bb44610d48a24395, type: 3}
   _targetPrefab: {fileID: 8404979950825810427, guid: 3c0bd1f3b2703a542ab2b77ea9968a86, type: 3}
 --- !u!1660057539 &9223372036854775807
