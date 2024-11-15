@@ -503,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 1565547790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53144515, y: 0.60514927, z: 0.0339902}
+  m_LocalPosition: {x: -3.04, y: -6.57, z: 0.0339902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -542,6 +542,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 56b5259aa36d0b548bd44a5cda4f1043, type: 2}
   - {fileID: 11400000, guid: e1323c20c4a1f8f4d8e55fc07b9e478c, type: 2}
   - {fileID: 11400000, guid: 7dfc08eab9549c746ae51a1d1091ed32, type: 2}
+  _spritePrefab: {fileID: 3795966364446473060, guid: 986084a7be44a5e4bb44610d48a24395, type: 3}
+  _targetPrefab: {fileID: 8404979950825810427, guid: 3c0bd1f3b2703a542ab2b77ea9968a86, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

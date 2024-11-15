@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq;  // Tambahkan ini untuk menggunakan fungsi LINQ seperti OrderBy
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,6 +11,8 @@ public class MazeGeneratorPrefab : MonoBehaviour
     [SerializeField] private int _mazeHeight;
     [SerializeField] private Tilemap _tileMap;
     [SerializeField] private TileBase[] _tiles;
+    [SerializeField] private GameObject _spritePrefab;  // Sprite yang akan ditempatkan di pojok
+    [SerializeField] private GameObject _targetPrefab;  // Target yang akan ditempatkan di pojok atau jalan buntu
 
     private MazeCellPrefabScript[,] _mazeGrid;
 
@@ -29,6 +31,8 @@ public class MazeGeneratorPrefab : MonoBehaviour
         yield return GenerateMaze(null, _mazeGrid[0, 0]);
 
         ReplacePrefabWithTiles();
+
+        PlaceSpriteAndTarget();  // Panggil fungsi untuk menempatkan sprite dan target setelah maze selesai dibuat
     }
 
     private IEnumerator GenerateMaze(MazeCellPrefabScript previousCell, MazeCellPrefabScript currentCell)
@@ -58,7 +62,7 @@ public class MazeGeneratorPrefab : MonoBehaviour
         return unvisitedCells.OrderBy(_ => Random.Range(1, 10)).FirstOrDefault();
     }
 
-    private IEnumerable<MazeCellPrefabScript> GetUnvisitedCells (MazeCellPrefabScript currentCell)
+    private IEnumerable<MazeCellPrefabScript> GetUnvisitedCells(MazeCellPrefabScript currentCell)
     {
         int x = (int)currentCell.transform.position.x;
         int y = (int)currentCell.transform.position.y;
@@ -96,7 +100,7 @@ public class MazeGeneratorPrefab : MonoBehaviour
         if (y - 1 >= 0)
         {
             var cellToBack = _mazeGrid[x, y - 1];
-            
+
             if (cellToBack.IsVisited == false)
             {
                 yield return cellToBack;
@@ -166,9 +170,57 @@ public class MazeGeneratorPrefab : MonoBehaviour
         {
             return _tiles[faceValue];
         }
-        else 
-        {  
-            return null; 
+        else
+        {
+            return null;
         }
+    }
+
+    private void PlaceSpriteAndTarget()
+    {
+        // Posisi empat pojok maze
+        List<Vector2Int> corners = new List<Vector2Int>
+        {
+            new Vector2Int(0, 0),
+            new Vector2Int(_mazeWidth - 1, 0),
+            new Vector2Int(0, _mazeHeight - 1),
+            new Vector2Int(_mazeWidth - 1, _mazeHeight - 1)
+        };
+
+        // Pilih salah satu pojok secara acak untuk sprite
+        Vector2Int spritePosition = corners[Random.Range(0, corners.Count)];
+        Vector3 spriteWorldPosition = _tileMap.CellToWorld(new Vector3Int(spritePosition.x, spritePosition.y, 0)) + _tileMap.cellSize / 2;
+        Instantiate(_spritePrefab, spriteWorldPosition, Quaternion.identity);
+
+        // Hapus pojok yang dipilih untuk sprite dari daftar pojok
+        corners.Remove(spritePosition);
+
+        // Mencari jalan buntu
+        List<Vector2Int> deadEnds = new List<Vector2Int>();
+
+        for (int x = 0; x < _mazeWidth; x++)
+        {
+            for (int y = 0; y < _mazeHeight; y++)
+            {
+                MazeCellPrefabScript cell = _mazeGrid[x, y];
+
+                // Cek jumlah tetangga yang belum dikunjungi
+                int unvisitedNeighbors = GetUnvisitedCells(cell).Count();
+
+                // Jika hanya ada satu tetangga yang belum dikunjungi, itu adalah jalan buntu
+                if (unvisitedNeighbors == 1)
+                {
+                    deadEnds.Add(new Vector2Int(x, y));
+                }
+            }
+        }
+
+        // Gabungkan pojok dan jalan buntu
+        corners.AddRange(deadEnds);
+
+        // Pilih salah satu lokasi untuk target (pojok atau jalan buntu)
+        Vector2Int targetPosition = corners[Random.Range(0, corners.Count)];
+        Vector3 targetWorldPosition = _tileMap.CellToWorld(new Vector3Int(targetPosition.x, targetPosition.y, 0)) + _tileMap.cellSize / 2;
+        Instantiate(_targetPrefab, targetWorldPosition, Quaternion.identity);
     }
 }
