@@ -7,8 +7,8 @@ using UnityEngine.Tilemaps;
 public class MazeGeneratorPrefab : MonoBehaviour
 {
     [SerializeField] private MazeCellPrefabScript _mazeCellPrefab;
-    [SerializeField] private int _mazeWidth;
-    [SerializeField] private int _mazeHeight;
+    private int _mazeHeight;
+    private int _mazeWidth;
     [SerializeField] private Tilemap _tileMap;
     [SerializeField] private TileBase[] _tiles;
     [SerializeField] private GameObject _spritePrefab;  // Sprite yang akan ditempatkan di pojok
@@ -18,6 +18,10 @@ public class MazeGeneratorPrefab : MonoBehaviour
 
     IEnumerator Start()
     {
+        _mazeWidth = PlayerPrefs.GetInt("MazeWidth", _mazeWidth);
+        _mazeHeight = PlayerPrefs.GetInt("MazeHeight", _mazeHeight);
+        Debug.Log($"Maze width: {_mazeWidth}, Maze height: {_mazeHeight}");
+
         _mazeGrid = new MazeCellPrefabScript[_mazeWidth, _mazeHeight];
 
         for (int x = 0; x < _mazeWidth; x++)
