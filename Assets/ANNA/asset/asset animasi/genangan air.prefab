@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5418544400847925440}
   - component: {fileID: 2234177957461761255}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: genangan air
   m_TagString: Untagged
   m_Icon: {fileID: 0}
