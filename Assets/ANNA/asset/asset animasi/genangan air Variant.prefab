@@ -9,8 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2234177957461761255, guid: 9dc030c3d9f468a4593f1009f10f7ff4, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2234177957461761255, guid: 9dc030c3d9f468a4593f1009f10f7ff4, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2234177957461761255, guid: 9dc030c3d9f468a4593f1009f10f7ff4, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1226466293
       objectReference: {fileID: 0}
     - target: {fileID: 5418544400847925440, guid: 9dc030c3d9f468a4593f1009f10f7ff4, type: 3}
       propertyPath: m_LocalScale.x
@@ -63,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 8565213050279884715, guid: 9dc030c3d9f468a4593f1009f10f7ff4, type: 3}
       propertyPath: m_Name
       value: genangan air Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565213050279884715, guid: 9dc030c3d9f468a4593f1009f10f7ff4, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

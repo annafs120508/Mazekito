@@ -11,6 +11,6 @@ public class CharacterSelector : MonoBehaviour
         GameManager.Instance.SetCharacter(character);
 
         // Pindah ke Gameplay Scene setelah memilih karakter
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene("SampleScene");
     }
 }
