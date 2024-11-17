@@ -229,13 +229,8 @@ Camera:
   far clip plane: 10000
   field of view: 60
   orthographic: 1
-<<<<<<< Updated upstream
-  orthographic size: 7
-  m_Depth: -1
-=======
   orthographic size: 4
   m_Depth: 0
->>>>>>> Stashed changes
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -259,11 +254,7 @@ Transform:
   m_GameObject: {fileID: 453107813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 19.5, y: 7, z: -10}
-=======
   m_LocalPosition: {x: 11.5, y: 5, z: -32.549107}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -577,11 +568,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mazeCellPrefab: {fileID: 3882035778255427041, guid: ad24a5e9b9775a04997925506f3d0cd0, type: 3}
-<<<<<<< Updated upstream
-  _mazeWidth: 20
-  _mazeHeight: 7
-=======
->>>>>>> Stashed changes
   _tileMap: {fileID: 706475334}
   _tiles:
   - {fileID: 11400000, guid: 3da7b81ab563eca4dbba3f543bf2a46d, type: 2}
