@@ -3,49 +3,58 @@ using UnityEngine;
 public class Tiltcb12 : MonoBehaviour
 {
     public float tiltSpeed = 5f;          // Kecepatan pergerakan bola berdasarkan tilt
-    public float tiltThreshold = 0.1f;    // Ambang batas tilt untuk mulai menggerakkan bola
-    public float maxSpeed = 10f;          // Batas kecepatan maksimum bola
+    public float tiltThreshold = 0.1f;   // Ambang batas tilt untuk mulai menggerakkan bola
+    public float maxSpeed = 10f;         // Batas kecepatan maksimum bola
 
-    public float xLimit = 10f;            // Batas pergerakan pada sumbu X
-    public float yLimit = 5f;             // Batas pergerakan pada sumbu Y
+    public float xLimit = 10f;           // Batas pergerakan pada sumbu X
+    public float yLimit = 5f;            // Batas pergerakan pada sumbu Y
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
 
-        // Mengunci posisi Z agar bola tidak bergerak di sumbu Z
-        rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        // Mengunci rotasi agar bola tidak berputar
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Dapatkan nilai kemiringan dari sensor akselerometer perangkat
         float tiltX = Input.acceleration.x;
         float tiltY = Input.acceleration.y;
 
+        // Hanya tambahkan gaya jika tilt melampaui ambang batas
         if (Mathf.Abs(tiltX) > tiltThreshold || Mathf.Abs(tiltY) > tiltThreshold)
         {
-            Vector3 tiltForce = new Vector3(tiltX, tiltY, 0) * tiltSpeed;
-            rb.AddForce(tiltForce, ForceMode.Acceleration);
+            Vector2 tiltForce = new Vector2(tiltX, tiltY) * tiltSpeed;
+            rb.AddForce(tiltForce, ForceMode2D.Force);
         }
 
+        // Batasi kecepatan maksimum bola
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
 
-        // Batasi pergerakan bola pada sumbu X saja jika ingin y bebas bergerak, atau dari -yLimit ke yLimit
-        Vector3 position = rb.position;
-        position.x = Mathf.Clamp(position.x, -xLimit, xLimit);
-        position.y = Mathf.Clamp(position.y, -yLimit, yLimit);
-        rb.position = position;
+        // Batasi pergerakan bola dalam area tertentu tanpa mengatur langsung rb.position
+        Vector2 clampedPosition = rb.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -xLimit, xLimit);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -yLimit, yLimit);
+
+        // Terapkan posisi yang ter-clamp hanya jika diperlukan
+        if (rb.position != clampedPosition)
+        {
+            rb.velocity = Vector2.zero; // Hentikan pergerakan jika berada di luar batas
+            rb.position = clampedPosition;
+        }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         // Tambahkan logika jika bola bertabrakan dengan dinding maze, jika diperlukan
+        Debug.Log("Collided with: " + collision.gameObject.name);
     }
 }
