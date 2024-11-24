@@ -88,6 +88,24 @@ public class SizeSelector : MonoBehaviour
         saveCameraSize();
     }
 
+    public void MediumCamera()
+    {
+        setCameraSize("Medium");
+        saveCameraSize();
+    }
+
+    public void SemiLargeCamera()
+    {
+        setCameraSize("SemiLarge");
+        saveCameraSize();
+    }
+
+    public void LargeCamera()
+    {
+        setCameraSize("Large");
+        saveCameraSize();
+    }
+
     void Awake()
     {
         // Mencari UIManager di scene dan menyimpannya ke variabel

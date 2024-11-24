@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/level1.unity
     guid: 6e38bbacdb7f1fb4097aab9273f55d1e
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/SnowForest.unity
     guid: fd4c70d2781d05e4e84fdf549383aba9
   m_configObjects: {}

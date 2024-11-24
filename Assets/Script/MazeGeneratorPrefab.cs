@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;  // Tambahkan ini untuk menggunakan fungsi LINQ seperti OrderBy
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -13,10 +13,11 @@ public class MazeGeneratorPrefab : MonoBehaviour
     [SerializeField] private TileBase[] _tiles;
     [SerializeField] private GameObject _spritePrefab;  // Sprite yang akan ditempatkan di pojok
     [SerializeField] private GameObject _targetPrefab;  // Target yang akan ditempatkan di pojok atau jalan buntu
+    [SerializeField] private GameObject winPanel;       // Panel kemenangan
 
     private MazeCellPrefabScript[,] _mazeGrid;
 
-    IEnumerator Start()
+    void Start()
     {
         _mazeWidth = PlayerPrefs.GetInt("MazeWidth", _mazeWidth);
         _mazeHeight = PlayerPrefs.GetInt("MazeHeight", _mazeHeight);
@@ -32,38 +33,38 @@ public class MazeGeneratorPrefab : MonoBehaviour
             }
         }
 
-        yield return GenerateMaze(null, _mazeGrid[0, 0]);
-
+        GenerateMaze(null, _mazeGrid[0, 0]);
         ReplacePrefabWithTiles();
-
         PlaceSpriteAndTarget();  // Panggil fungsi untuk menempatkan sprite dan target setelah maze selesai dibuat
     }
 
-    private IEnumerator GenerateMaze(MazeCellPrefabScript previousCell, MazeCellPrefabScript currentCell)
+    private void GenerateMaze(MazeCellPrefabScript previousCell, MazeCellPrefabScript currentCell)
     {
-        currentCell.Visit();
-        ClearWalls(previousCell, currentCell);
+        Stack<MazeCellPrefabScript> cellStack = new Stack<MazeCellPrefabScript>();
+        cellStack.Push(currentCell);
 
-        yield return new WaitForSeconds(0.05f);
-
-        MazeCellPrefabScript nextCell;
-
-        do
+        while (cellStack.Count > 0)
         {
-            nextCell = GetNextUnvisitedCell(currentCell);
+            currentCell = cellStack.Pop();
+            currentCell.Visit();
 
-            if (nextCell != null)
+            if (previousCell != null)
             {
-                yield return GenerateMaze(currentCell, nextCell);
+                ClearWalls(previousCell, currentCell);
+            }
+
+            var unvisitedCells = GetUnvisitedCells(currentCell).ToList();
+
+            if (unvisitedCells.Count > 0)
+            {
+                previousCell = currentCell;
+
+                // Shuffle unvisited cells randomly
+                var nextCell = unvisitedCells.OrderBy(_ => Random.Range(1, 10)).FirstOrDefault();
+                cellStack.Push(currentCell);
+                cellStack.Push(nextCell);
             }
         }
-        while (nextCell != null);
-    }
-
-    private MazeCellPrefabScript GetNextUnvisitedCell(MazeCellPrefabScript currentCell)
-    {
-        var unvisitedCells = GetUnvisitedCells(currentCell);
-        return unvisitedCells.OrderBy(_ => Random.Range(1, 10)).FirstOrDefault();
     }
 
     private IEnumerable<MazeCellPrefabScript> GetUnvisitedCells(MazeCellPrefabScript currentCell)
@@ -182,7 +183,6 @@ public class MazeGeneratorPrefab : MonoBehaviour
 
     private void PlaceSpriteAndTarget()
     {
-        // Posisi empat pojok maze
         List<Vector2Int> corners = new List<Vector2Int>
         {
             new Vector2Int(0, 0),
@@ -191,40 +191,25 @@ public class MazeGeneratorPrefab : MonoBehaviour
             new Vector2Int(_mazeWidth - 1, _mazeHeight - 1)
         };
 
-        // Pilih salah satu pojok secara acak untuk sprite
         Vector2Int spritePosition = corners[Random.Range(0, corners.Count)];
         Vector3 spriteWorldPosition = _tileMap.CellToWorld(new Vector3Int(spritePosition.x, spritePosition.y, 0)) + _tileMap.cellSize / 2;
         Instantiate(_spritePrefab, spriteWorldPosition, Quaternion.identity);
 
-        // Hapus pojok yang dipilih untuk sprite dari daftar pojok
         corners.Remove(spritePosition);
 
-        // Mencari jalan buntu
-        List<Vector2Int> deadEnds = new List<Vector2Int>();
-
-        for (int x = 0; x < _mazeWidth; x++)
-        {
-            for (int y = 0; y < _mazeHeight; y++)
-            {
-                MazeCellPrefabScript cell = _mazeGrid[x, y];
-
-                // Cek jumlah tetangga yang belum dikunjungi
-                int unvisitedNeighbors = GetUnvisitedCells(cell).Count();
-
-                // Jika hanya ada satu tetangga yang belum dikunjungi, itu adalah jalan buntu
-                if (unvisitedNeighbors == 1)
-                {
-                    deadEnds.Add(new Vector2Int(x, y));
-                }
-            }
-        }
-
-        // Gabungkan pojok dan jalan buntu
-        corners.AddRange(deadEnds);
-
-        // Pilih salah satu lokasi untuk target (pojok atau jalan buntu)
         Vector2Int targetPosition = corners[Random.Range(0, corners.Count)];
         Vector3 targetWorldPosition = _tileMap.CellToWorld(new Vector3Int(targetPosition.x, targetPosition.y, 0)) + _tileMap.cellSize / 2;
-        Instantiate(_targetPrefab, targetWorldPosition, Quaternion.identity);
+
+        GameObject target = Instantiate(_targetPrefab, targetWorldPosition, Quaternion.identity);
+        target.tag = "Target";
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Target"))
+        {
+            winPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 }
